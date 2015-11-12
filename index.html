@@ -125,62 +125,7 @@ yepnope({
     '/js/setting.js?20120707',
     '/js/dailybread.js?20120707'
   ],
-  complete: function() {
-
-    (function ($) {
-
-      $(function () {
-
-        $('#preloader .txt').html('loading data');
-
-       var db = new OpenSpending.DailyBread($('#dailybread'));
-       new OpenSpending.Aggregator({
-           apiUrl: 'http://openspending.org/api',
-           //localApiCache: 'aggregate.json',
-           dataset: OpenSpending.identifier,
-           drilldowns: ['Category', 'Subcategory','Subcategory02'],
-           cuts: ['year:' + OpenSpending.year],
-           rootNodeLabel: 'Total',
-           breakdown: 'Subcategory02',
-           callback: function(data) {
-
-            $('#content-wrap').show();
-            $('#preloader').remove();
-             var work = {};
-            var i;
-            var n = 9;
-            var j;
-            console.log(data);
-            for(i=0;i< n-1;i++){
-                for(j=n-1;j>i;j--){
-                    if(data.children[j-1]["amount"] <data.children[j]["amount"]){
-                        work = data.children[j];
-                        data.children[j] = data.children[j-1];
-                        data.children[j-1] = work;
-                    }
-                }
-            }
-            work = data.children[1];
-            delete data.children[1];
-            data.children.push(work);
-
-            db.setDataFromAggregator(data, ['unknown']);
-            db.setIconLookup(function(name) {
-              var style = OpenSpending.Styles.Cofog[name];
-              if (style != undefined) {
-               return style['icon'];
-              }
-              return 'icons/unknown.svg';
-            });
-            db.draw();
-           }
-        });
-
-        OpenSpending.renderDependentTypes(db);
-      });
-    })(jQuery)
-  }
-});
+  complete: display
 
 
 </script>
