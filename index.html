@@ -83,6 +83,21 @@ yepnope({
   <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
   -->
   <div>
+    <form name=selyear action="#">
+	    <table>
+	        <tr>
+	            <th>表示する年度を選んでください </th>
+	            <td>
+	                <select name="selectedYear" id="year" onchange="setData(this.form);" style="width:200px;">
+	                    <option value="2013">2013年度</option>
+	                    <option value="2012">2012年度</option>
+	                    <option value="2011">2011年度</option>
+	                    <option value="2010">2010年度</option>
+	                </select>
+	            </td>
+	        </tr>
+	    </table>
+	  </form>
     <h2 style="width:240px;display:inline-block;vertical-align:top;">あなたの世帯タイプは？</h2>
     <div id="select-dependents-type" style="width:450px;display:inline-block;">
       <div class="single">単身世帯</div>
