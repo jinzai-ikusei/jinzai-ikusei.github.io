@@ -21,23 +21,21 @@ title: The Daily Bread
 			UseData.year = paramArray["requestYear"];
 			UseData.identifier = paramArray["requestName"];
 		}
-		//else {
-		//	UseData.year = "2014";
-		//	UseData.identifier = "jinzai2017ikusei";
-		//}
+		else {
+			UseData.year = "2014";
+			UseData.identifier = "jinzai2017ikusei";
+		}
 	}
 	
 	getUseDatas();
 	var datas = new Array();
 	datas[0] = new Array();
-	datas[0][0] = "2013";
-	datas[0][1] = "takasago_2013_yosan";
+	datas[0][0] = "2014";
+	datas[0][1] = "jinzai2017ikusei";
 	datas[1] = new Array();
-	datas[1][0] = "2014";
+	datas[1][0] = "2015";
 	datas[1][1] = "jinzai2017ikusei";
-	datas[2] = new Array();
-	datas[2][0] = "2015";
-	datas[2][1] = "";
+
 
     function setData(frmObj) {
 		var yearList=document.getElementById('year');
@@ -161,7 +159,6 @@ yepnope({
 	                <select name="selectedYear" id="year" onchange="setData(this.form);" style="width:200px;">
 	                    <option value="2015">平成27年度(誠意製作中)</option>
 	                    <option value="2014">平成26年度</option>
-	                    <option value="2013">平成25年度(横手市)</option>
 	                </select>
 	            </td>
 	        </tr>
