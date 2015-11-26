@@ -3,7 +3,9 @@ layout: default
 title: 使途別予算額
 ---
 <script type="text/javascript">
+
 	var UseData = UseData || {};
+	
 	function getUseDatas() {
 		var url = location.href;
 		var params = url.split("?");
@@ -17,6 +19,7 @@ title: 使途別予算額
 	    	paramArray.push(item[0]);
 	    	paramArray[item[0]] = item[1];
 		}
+		
 		if( paramArray["requestYear"] != null  && paramArray["requestName"] != null ) {
 			UseData.year = paramArray["requestYear"];
 			UseData.identifier = paramArray["requestName"];
@@ -29,9 +32,11 @@ title: 使途別予算額
 	
 	getUseDatas();
 	var datas = new Array();
+
 	datas[0] = new Array();
 	datas[0][0] = "2014";
 	datas[0][1] = "jinzai2017ikusei";
+
 	datas[1] = new Array();
 	datas[1][0] = "2015";
 	datas[1][1] = "jinzai2017ikusei";
@@ -48,7 +53,7 @@ title: 使途別予算額
 			break;
 			}
 		}
-		location.href = "index.html?requestYear=" + UseData.year + "&requestName=" + UseData.identifier;
+		location.href = "bubbletree.html?requestYear=" + UseData.year + "&requestName=" + UseData.identifier;
     }
     window.onpageshow=function(){
 	//window.onload=function(){
@@ -60,12 +65,8 @@ title: 使途別予算額
 		for(var i = 0; i < obj.length; i++){
 			if(obj[i].value == val){
 				obj[i].selected=true;
-				// alert( "list year true : " + obj[i].value );
 				break;
 			}
-			// } else {
-			// 	obj[i].selected=false;
-			// }
 		}
 	}
     
