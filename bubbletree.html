@@ -43,13 +43,13 @@ title: 使途別予算額
 
 
     function setData(frmObj) {
-		var yearList=document.getElementById('year');
-		var options=document.getElementById('year').options;
-		UseData.year=options.item(yearList.selectedIndex).value;
+		var identifierList=document.getElementById('id');
+		var options=document.getElementById('id').options;
+		UseData.identifier=options.item(identifierList.selectedIndex).value;
 		
 		for( var i = 0; i < datas.length; i++ ) {
-			if( datas[i][0] == UseData.year ) {
-			UseData.identifier = datas[i][1];
+			if( datas[i][1] == UseData.identifier ) {
+			UseData.year = datas[i][0];
 			break;
 			}
 		}
@@ -58,7 +58,7 @@ title: 使途別予算額
     window.onpageshow=function(){
 	//window.onload=function(){
 	  getUseDatas();
-		checkSelect( document.getElementById( "year" ), UseData.year );
+		checkSelect( document.getElementById( "id" ), UseData.identifier );
 	}
 	
 	function checkSelect( obj, val ){
@@ -139,9 +139,9 @@ title: 使途別予算額
 	        <tr>
 	            <th>表示する年度を選んでください </th>
 	            <td>
-	                <select name="selectedYear" id="year" onchange="setData(this.form);" style="width:200px;">
-	                    <option value="2015">平成27年度（誠意製作中）</option>
-	                    <option value="2014">平成26年度</option>
+	                <select name="selectedIdentifier" id="id" onchange="setData(this.form);" style="width:200px;">
+	                    <option value="kakgoawa_test_data">平成26年度（テストデータ）</option>
+	                    <option value="jinzai2017ikusei">平成26年度</option>
 	                </select>
 	            </td>
 	        </tr>
