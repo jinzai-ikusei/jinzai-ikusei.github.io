@@ -38,8 +38,8 @@ title: The Daily Bread
 
 
     function setData(frmObj) {
-		var yearList=document.getElementById('year');
-		var options=document.getElementById('year').options;
+		var yearList=document.getElementById('id');
+		var options=document.getElementById('id').options;
 		UseData.identifier=options.item(yearList.selectedIndex).value;
 		
 		for( var i = 0; i < datas.length; i++ ) {
@@ -53,7 +53,7 @@ title: The Daily Bread
     window.onpageshow=function(){
 	//window.onload=function(){
 	  getUseDatas();
-		checkSelect( document.getElementById( "year" ), UseData.identifier );
+		checkSelect( document.getElementById( "id" ), UseData.identifier );
 	}
 	
 	function checkSelect( obj, val ){
@@ -156,9 +156,9 @@ yepnope({
 	        <tr>
 	            <th>表示する年度を選んでください </th>
 	            <td>
-	                <select name="selectedYear" id="year" onchange="setData(this.form);" style="width:200px;">
-	                    <option value="jinzai2017ikusei">平成27年度(誠意製作中)</option>
-	                    <option value="kakogawa_test_data">平成26年度</option>
+	                <select name="selectedIdentifier" id="id" onchange="setData(this.form);" style="width:200px;">
+	                    <option value="jinzai2017ikusei">平成26年度</option>
+	                    <option value="kakogawa_test_data">平成26年度(テストデータ)</option>
 	                </select>
 	            </td>
 	        </tr>
