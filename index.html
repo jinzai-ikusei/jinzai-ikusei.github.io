@@ -33,18 +33,18 @@ title: The Daily Bread
 	datas[0][0] = "2014";
 	datas[0][1] = "jinzai2017ikusei";
 	datas[1] = new Array();
-	datas[1][0] = "2015";
-	datas[1][1] = "jinzai2017ikusei";
+	datas[1][0] = "2014";
+	datas[1][1] = "kakogawa_test_data";
 
 
     function setData(frmObj) {
 		var yearList=document.getElementById('year');
 		var options=document.getElementById('year').options;
-		UseData.year=options.item(yearList.selectedIndex).value;
+		UseData.identifier=options.item(yearList.selectedIndex).value;
 		
 		for( var i = 0; i < datas.length; i++ ) {
-			if( datas[i][0] == UseData.year ) {
-			UseData.identifier = datas[i][1];
+			if( datas[i][1] == UseData.identifier ) {
+			UseData.year = datas[i][0];
 			break;
 			}
 		}
@@ -53,7 +53,7 @@ title: The Daily Bread
     window.onpageshow=function(){
 	//window.onload=function(){
 	  getUseDatas();
-		checkSelect( document.getElementById( "year" ), UseData.year );
+		checkSelect( document.getElementById( "year" ), UseData.identifier );
 	}
 	
 	function checkSelect( obj, val ){
@@ -157,8 +157,8 @@ yepnope({
 	            <th>表示する年度を選んでください </th>
 	            <td>
 	                <select name="selectedYear" id="year" onchange="setData(this.form);" style="width:200px;">
-	                    <option value="2015">平成27年度(誠意製作中)</option>
-	                    <option value="2014">平成26年度</option>
+	                    <option value="jinzai2017ikusei">平成27年度(誠意製作中)</option>
+	                    <option value="kakogawa_test_data">平成26年度</option>
 	                </select>
 	            </td>
 	        </tr>
