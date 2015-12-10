@@ -38,9 +38,9 @@ title: The Daily Bread
 
 
     function setData(frmObj) {
-		var idList=document.getElementById('id');
+		var identifierList=document.getElementById('id');
 		var options=document.getElementById('id').options;
-		UseData.identifier=options.item(idList.selectedIndex).value;
+		UseData.identifier=options.item(identifierList.selectedIndex).value;
 		
 		for( var i = 0; i < datas.length; i++ ) {
 			if( datas[i][1] == UseData.identifier ) {
